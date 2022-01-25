@@ -14,14 +14,17 @@
     Ordinamento per prezzo
 -->
 
-    <h1 id="benvenuto"></h1>
-    <ul id="listaOgg"></ul>
-    <div id="resOgg">
-        <div id="totale"></div>
-        <div id="totaleIvato"></div>
-        <div id="spedizione"></div>
-        <div id="grandTotal"></div>
-    </div>
-    <script src="js/07-script.js"></script>
+	<h1 id="benvenuto"></h1>
+	<label>Item:</label><input type="text" name="item" id="item">
+	<label>Prezzo:</label><input type="text" name="prezzo" id="prezzo">
+	<input type="button" value="carica" onclick="registra()">
+	<ul id="listaOgg"></ul>
+	<div id="resOgg">
+		<div id="totale"></div>
+		<div id="totaleIvato"></div>
+		<div id="spedizione">Sempre 6.99€</div>
+		<div id="grandTotal"></div>
+	</div>
+	<script src="js/07-script.js"></script>
 </body>
 </html>
