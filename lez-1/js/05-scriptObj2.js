@@ -20,7 +20,7 @@ let auto = {
 		this.num_giri = num_giri;
 		console.log(this.num_giri);
 	},
-
+	
 	cambiaMarcia: function(marcia){
 		this.marcia = marcia;
 		console.log("Hai cambiato marcia!");
