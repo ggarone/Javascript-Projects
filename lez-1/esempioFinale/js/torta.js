@@ -4,6 +4,9 @@ let torte = [
     }
 ]
 
+function scegli(){
+    //
+}
 
 
 
