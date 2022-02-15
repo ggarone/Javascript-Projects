@@ -19,5 +19,4 @@ console.log(elsLI);
 
 for (let i = 0; i < elsLI2.length; i++) {
     elsLI2[i].className = 'red';
-    
 }
