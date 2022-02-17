@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Torteria - Tortami via</h1>
+    <p>Stai acquistando la torta che vedi</p>
+
+    <select id="tortaSelect">
+        <option value="Sacher" id="">Sacher</option>
+        <option value="Brownies" id="">Cheesecake</option>
+        <option value="Cheese" id="">Brownies</option>
+        <option value="Crostata" id="">Crostata della nonna</option>
+        <option value="Velvet" id="">Red Velvet</option>
+    </select>
+    <button onclick="scegli()">Seleziona</button>
+
+    <div id="info">
+        <h3>Torta selezionata</h3>
+        <div id="imgTorta"></div>
+        <div id="tortaNome"></div>
+        <div id="prezzoTorta"></div>
+        <div id="prezzoSpeciale"></div>
+        <div id="offertaFine"></div>
+    </div>
+
+    <script src="js/torta.js"></script>
+</body>
+</html>

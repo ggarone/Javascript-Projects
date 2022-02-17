@@ -1,0 +1,12 @@
+#items {
+    list-style: none;
+}
+
+.deleteButton{
+    position: absolute;
+    left: 15rem;
+}
+
+input[type='checkbox']:checked + label{
+    text-decoration: line-through;
+}
