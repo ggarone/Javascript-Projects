@@ -36,7 +36,13 @@ let films = [
     },
 ]
 
-
+const castUL = document.getElementById('cast');
+const durata = document.getElementById('durata');
+const anno = document.getElementById('anno');
+const genere = document.getElementById('genere');
+const titolo = document.getElementById('titolo');
+const locandina = document.getElementById('locandina');
+let counter = 0;
 // from js obj -> json
 let mioJSON = JSON.stringify(films[0]);
 console.log(mioJSON);
@@ -45,3 +51,35 @@ let filmJSON = '{"Title":"The Prestige","Year":"2006","Rated":"PG-13","Released"
 let mioOBJ = JSON.parse(filmJSON);
 console.log(mioOBJ);
 
+
+locandina.setAttribute('width',300);
+locandina.setAttribute('height',444);
+locandina.setAttribute('src',films[0].locandina);
+printMovieData();
+console.log(counter);
+
+function doStuff(buttonID) {
+    if(buttonID == 'prev' && counter != 0){
+        locandina.setAttribute('src',films[--counter%films.length].locandina);
+        console.log(counter);
+    }
+    else if(buttonID == 'next' && counter != films.length-1){
+        locandina.setAttribute('src',films[++counter%films.length].locandina);
+        console.log(counter);
+    }
+
+    printMovieData();
+}
+
+function printMovieData() {
+    castUL.innerHTML = 'Attori: ';
+    for (const attore of films[counter].attori) {
+        const castLI = document.createElement('li');
+        castLI.innerHTML = attore;
+        castUL.appendChild(castLI);
+    }
+    titolo.innerHTML = films[counter].titolo;
+    durata.innerHTML = 'Durata: ' + films[counter].durata;
+    anno.innerHTML = 'Anno: ' + films[counter].anno;
+    genere.innerHTML = 'Genere: ' + films[counter].genere;
+}
