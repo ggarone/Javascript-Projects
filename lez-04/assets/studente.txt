@@ -1,0 +1,14 @@
+[
+    {
+        "nome": "Pippo",
+        "cognome": "Rossi",
+        "materie": ["Java","Javascript","Angular"],
+        "compagniClasse": ["Gianni","Anna","Giulia","Silvio"]
+    },
+        {
+        "nome": "Pluto",
+        "cognome": "Verdi",
+        "materie": ["Python","Hibernate","Spring"],
+        "compagniClasse": ["Harold","Cassandra","Gianni","Claudia"]
+    }
+]
