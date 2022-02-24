@@ -1,0 +1,19 @@
+.dimDiv {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(209, 159, 216);
+    border: 1px solid black;
+    margin-top: 50px;
+}
+
+.warning {
+    color: orange;
+}
+
+.danger {
+    color: rgb(146, 23, 23);
+}
+
+.primary {
+    color: rgb(34, 114, 67);
+}
