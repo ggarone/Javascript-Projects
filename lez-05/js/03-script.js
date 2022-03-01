@@ -1,4 +1,5 @@
 const username = document.getElementById('username');
+const demo = document.getElementById('demo');
 
 function changeColor() {
     let user = username.value;
@@ -10,6 +11,12 @@ function changeColor() {
         username.classList.remove('danger');
         username.classList.add('primary');
     }
+
+    demo.innerHTML = `Length of input is ${user.length}`;
+
 }
 
-username.addEventListener('keyup',changeColor,false);
+// username.addEventListener('keyup',changeColor,false);
+username.addEventListener('input',changeColor,false);
+
+

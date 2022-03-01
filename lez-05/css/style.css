@@ -12,8 +12,12 @@
 
 .danger {
     color: rgb(146, 23, 23);
+    box-shadow: 0.3rem 0.3rem 0.3rem rgb(146, 23, 23);
+    margin: 2rem;
 }
 
 .primary {
     color: rgb(34, 114, 67);
+    box-shadow: 0.3rem 0.3rem 0.3rem rgb(34, 114, 67);
+    margin: 2rem;
 }
