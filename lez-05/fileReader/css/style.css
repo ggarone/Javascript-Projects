@@ -1,0 +1,12 @@
+#div1, #div2 {
+    float: left;
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    margin: 20px;
+    border: 2px solid black;
+}
+
+img {
+    width: 100%;
+}
