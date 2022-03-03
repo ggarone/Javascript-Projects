@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Twitter <img src="https://upload.wikimedia.org/wikipedia/it/archive/0/09/20160903181541%21Twitter_bird_logo.png" alt="" width="40em"></h1>
+    <p>Scrivi il tuo tweet con 280 caratteri</p>
+    <textarea id="messaggio" rows="5"></textarea>
+    <!-- I caratteri devono scorrere live.  -->
+    <!-- Quando arrivo a 280 devo poter bloccare la possibilita' di continuare a scrivere -->
+    <div id="caratteriRes">280</div><br>
+    <!-- Questo pulsante scrive il tweet nel div sottostante e permette di salvare un file -->
+    <button id="btn">Salva Tweet</button>
+    <!-- Questo sotto viene mostrato solo quando lancio il tweet -->
+    <!-- Da qui in poi posso modificare il codice HTML -->
+    <h2 class="show">Il tuo tweet</h2>
+    <div id="feed"></div>
+
+
+    <script src="js/05-script.js"></script>
+</body>
+</html>
