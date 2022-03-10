@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .dimDiv {
     width: 200px;
     height: 200px;
@@ -12,12 +16,16 @@
 
 .danger {
     color: rgb(146, 23, 23);
-    box-shadow: 0.3rem 0.3rem 0.3rem rgb(146, 23, 23);
-    margin: 2rem;
+    /* box-shadow: 0.3rem 0.3rem 0.3rem rgb(146, 23, 23);
+    margin: 2rem; */
 }
 
 .primary {
     color: rgb(34, 114, 67);
-    box-shadow: 0.3rem 0.3rem 0.3rem rgb(34, 114, 67);
-    margin: 2rem;
+    /* box-shadow: 0.3rem 0.3rem 0.3rem rgb(34, 114, 67);
+    margin: 2rem; */
+}
+
+ul li.barrato {
+    text-decoration: line-through;
 }
