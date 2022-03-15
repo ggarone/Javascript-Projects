@@ -27,6 +27,18 @@ $(function(){
                 required: 'Non hai inserito la mail',
                 email : 'Email non formattata correttamente'
             }
+        },
+
+        // errorPlacement: function(error,element){
+        //     if(element.attr("name") == "login" || element.attr("name") == "email" || element.attr("name") == "password"){
+        //         error.insertAfter("#demo");
+        //     } else{
+        //         error.insertAfter(element);
+        //     }
+        // },
+
+        submitHandler: function(form){
+            form.submit();
         }
     })
 })
