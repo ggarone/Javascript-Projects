@@ -1,0 +1,17 @@
+{
+  "utenti": [
+    {
+      "id": 1,
+      "nome": "Dario",
+      "email": "dario.menillo@gmail.com",
+      "telefono": "12345678",
+      "citta": "Napoli",
+      "image_src": "C:\\Users\\sviluppo.EDU-IL\\Pictures\\dario.jpg"
+    }
+  ],
+  "profili": [
+    "base",
+    "admin",
+    "superUser"
+  ]
+}
