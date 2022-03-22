@@ -1,0 +1,19 @@
+div.card {
+  background-color: rgba(0, 128, 128, 0.39);
+  display: inline-block;
+  flex-direction: row;
+  
+}
+div.card-body{
+    background-color: rgba(0, 128, 128, 0.39);
+    
+}
+
+.form-control {
+    width: 50%;
+}
+
+.card-img-top{
+    height: 350px;
+    width: auto;
+}
