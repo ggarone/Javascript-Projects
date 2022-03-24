@@ -1,4 +1,4 @@
-const apiKey = '839535395cb7604147768791299d89ce';
+const apiKey = '';
 
 $('.btn').click(function (e) {
     e.preventDefault();
