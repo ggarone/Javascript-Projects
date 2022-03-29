@@ -1,4 +1,4 @@
-const apiKey = '839535395cb7604147768791299d89ce';
+const apiKey = '';
 let counter = 0;
 let cardCounter = 0;
 let id = 0;
