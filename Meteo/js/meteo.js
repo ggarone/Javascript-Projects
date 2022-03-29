@@ -1,60 +1,131 @@
-const apiKey = '';
+const apiKey = '839535395cb7604147768791299d89ce';
+let counter = 0;
+let cardCounter = 0;
+let id = 0;
+let LI = '';
+let flag = false;
 
-$('.btn').click(function (e) {
-    e.preventDefault();
-    let city = $('#city').val();
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
-    $.ajax({
-        type: "get",
-        url: url,
-        dataType: "json",
-        success: function (response) {
-            console.log(response);
-            let counter = 0;
-            let id = 0;
-            response.list.forEach(element => {
-                if (counter > 24)
-                    return;
-
-                let time = element.dt_txt.split(" ")[1];
-                let description = element.weather[0].description;
-                let icon = element.weather[0].icon;
-                const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-                if (counter == 0) {
-                    let tempMin = element.main.temp_min;
-                    let tempMax = element.main.temp_max;
-                    let humidity = element.main.humidity;
-                    let pressure = element.main.pressure;
-                    let main = element.weather[0].main;
-                    let att =
-                        `
-                    <h2>Meteo Attuale</h2>
-                    <img src="${iconUrl}">
-                    <p>min: ${tempMin}</p> <p>humidity: ${humidity}</p>
-                    <p>max: ${tempMax}</p> <p>pressure: ${pressure}</p>
-                    <p>${main}</p>
-                    `;
-                    $('#meteoAttuale').append(att);
-
-                }
-
-                if (counter % 6 == 0) {
-                    console.log(`created a new card with counter-> ${counter} id->${id}`);
-                    let card =
-                        `
-                    <div class="card" style="width: 18rem;">
-                    <ul class="list-group list-group-flush" id="ciao${id}"></ul>
-                    </div>
-                    `
-                    $('#cards').append(card);
-                    id++;
-                }
-                
-                $('ul #ciao'+id).append(`<li class="list-group-item">${time} <img src="${iconUrl}"> <p>${description}</p></li>`);
-                console.log(`counter ${counter}`);
-                counter++;
-            });
-        }
-    });
+$('#city').keyup(function (e) {
+    // e.preventDefault();
+    if(e.keyCode == 13){
+        let city = $('#city').val();
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+        console.log(url);
+        let DY = document.querySelector('.dynamic');
+        DY.innerHTML = getInitDynamic();
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                response.list.forEach(element => {
+                    let time = element.dt_txt.split(" ")[1];
+                    let day = element.dt_txt.split(" ")[0];
+                    let description = element.weather[0].description;
+                    let icon = element.weather[0].icon;
+                    let tempMin = Math.round(element.main.temp_min - 273);
+                    let tempMax = Math.round(element.main.temp_max - 273);
+                    time = time.substring(0, 5);
+                    const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    
+                    if (counter == 0 && flag == false) {
+                        printCurrentWeather(element,iconUrl,tempMin,tempMax);
+                    }
+                    // exit when all cards are full
+                    if (counter > 19)
+                        return;
+                    // skips every odd time
+                    if (cardCounter % 2 != 0) {
+                        cardCounter++;
+                        return;
+                    }
+    
+                    // make sure card start on midnight of next day
+                    if (time != '00:00' && counter == 0) {
+                        return;
+                    }
+    
+                    // create new card every 5 elemtents
+                    if (counter % 5 == 0) {
+                        createNewCard(day);
+                    }
+    
+                    // create redundancy for midnight of next day
+                    if (counter % 5 == 0 && counter != 0) {
+                        $('#' + id).append(LI);
+                        counter++;
+                    }
+    
+                    addNewLIElement(time,tempMin,description,iconUrl);
+                    counter++;
+                    cardCounter++;
+                });
+            }
+        });
+    }
 });
+
+// populates UL with LI elements
+function addNewLIElement(time,tempMin,description,iconUrl) {
+    LI =
+    `
+        <li class="list-group-item">
+        <p>${time}<span class="desc">${description}</span></p>
+        <p>temp: ${tempMin}°</p><img class="" src="${iconUrl}">
+        </li>
+    `;
+    $('#' + id).append(LI);
+}
+
+// prints current weather
+function printCurrentWeather(element,iconUrl,tempMin,tempMax) {
+    let humidity = element.main.humidity;
+    let pressure = element.main.pressure;
+    let main = element.weather[0].main;
+    let att =
+        `
+        <h2>Meteo Oggi</h2>
+        <img src="${iconUrl}">
+        <p>min: ${tempMin}
+        humidity: ${humidity}
+        max: ${tempMax}
+        pressure: ${pressure}
+        ${main}
+        </p>
+        `;
+    $('#meteoAttuale').append(att);
+    flag = true;
+}
+
+// create new card
+function createNewCard(day) {
+    if (counter != 0)
+        id++;
+    // console.log(`created a new card with counter-> ${counter} id->${id}`);
+    let card =
+    `
+        <div class="card" class="col-3" style="width: 18rem;">
+        <h2 class="text-center">${day}</h2>
+        <ul class="list-group list-group-flush" id="${id}"></ul>
+        </div>
+    `
+    $('#cards').append(card);
+    // $('#'+id).parent().append(`<h2>${day}</h2>`);
+}
+
+function getInitDynamic() {
+    let dy = 
+    `
+    <div id="meteoAttuale"></div>
+    <div class="row">
+        <div id="cards"></div>
+    </div>
+    `
+    counter = 0;
+    cardCounter = 0;
+    id = 0;
+    LI = '';
+    flag = false;
+    return dy;
+}

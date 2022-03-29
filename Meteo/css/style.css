@@ -1,3 +1,30 @@
+/* img {
+    background-color: rgb(197, 197, 197);
+} */
+
+.container {
+    background-color: rgb(255, 209, 216);
+}
+
+
 img {
     background-color: rgb(197, 197, 197);
+    width: 3rem;
+    height: 3rem;
+}
+
+.card {
+    display: inline-block;
+    margin: 0 1rem;
+    
+}
+
+.row {
+    height: 52rem;
+}
+
+#meteoAttuale {
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
 }
