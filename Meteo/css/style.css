@@ -28,3 +28,8 @@ img {
     margin: 0 auto;
     text-align: center;
 }
+
+.canvas {
+    width: 25rem;
+    height: 25rem;
+}
